@@ -28,7 +28,7 @@ var program = require('commander');
 var cheerio = require('cheerio');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
-var URL_DEFAULT = "www.google.com";
+var URL_DEFAULT = "http://morning-eyrie-5971.herokuapp.com/";
 
 var assertFileExists = function(infile) {
     var instr = infile.toString();
@@ -91,12 +91,12 @@ if(require.main == module) {
 
     if(program.url){
 	 var checkJson_url = checkUrl(program.url, program.checks);
-        // var outJson = JSON.stringify(out, null, 4);
+         //var outJson = JSON.stringify(checkJson_url,null, 4);
 }
          else{
 	var checkJson = checkHtmlFile(program.file, program.checks);
         var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);}
+        console.log(outJson);}
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
